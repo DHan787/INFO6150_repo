@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 1rem;
+            color: #444;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Edit Post</h1>
+    <form id="edit-form">
+        <label for="title">Title:</label><br />
+        <input type="text" id="title" name="title" /><br /><br />
+        <label for="body">Body:</label><br />
+        <textarea id="body" name="body" rows="5" cols="30"></textarea><br /><br />
+        <button type="submit">Save Changes</button>
+    </form>
+    <script type="module">
+        const params = new URLSearchParams(window.location.search);
+        const postId = params.get('id');
+        const form = document.getElementById('edit-form');
+        const titleInput = document.getElementById('title');
+        const bodyInput = document.getElementById('body');
+
+        // 从 API 获取原始数据用于展示
+        fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+            .then(response => response.json())
+            .then(post => {
+                titleInput.value = post.title;
+                bodyInput.value = post.body;
+            });
+
+        // 保存到 localStorage 而不是发 PUT 请求
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const updatedPost = {
+                id: postId,
+                title: titleInput.value,
+                body: bodyInput.value,
+            };
+
+            const editedPosts = JSON.parse(localStorage.getItem('editedPosts') || '{}');
+            editedPosts[postId] = updatedPost;
+            localStorage.setItem('editedPosts', JSON.stringify(editedPosts));
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedPost),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    console.log('Remote update successful.');
+                })
+                .catch(error => {
+                    console.error('There was a problem with the PUT request:', error);
+                });
+
+            alert('Changes saved locally!');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

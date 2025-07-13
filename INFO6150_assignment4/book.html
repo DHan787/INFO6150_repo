@@ -1,0 +1,67 @@
+<!--
+ * @Author: Jiang Han
+ * @Date: 2025-02-14 20:43:02
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Details</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="book-page">
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="book.html">Catalog</a></li>
+                <li><a href="loans.html">Loan System(not Available yet)</a></li>
+            </ul>
+        </nav>
+        <button class="apply-button" onclick="window.location.href='apply.html';">Do not have a card? Apply</button>
+    </header>
+    <main>
+        <div class="book-card">
+            <!-- 左侧：书籍基本信息及封面图片 -->
+            <div class="book-info">
+                <img class="book-cover" src="images/IMG1.jpg" alt="Book Cover" />
+                <h2>Book Title: Business Research Methodology</h2>
+                <p><strong>Author:</strong> Sergey K. Aityan</p>
+                <p><strong>Genre:</strong> Textbook</p>
+                <p><strong>Copies:</strong> 5</p>
+                <p><strong>Available:</strong> 3</p>
+            </div>
+            <!-- 右侧：摘要及预订按钮 -->
+            <div class="book-summary">
+                <p><strong>Summary:</strong></p>
+                <ul>
+                    <li>Presents the major research processes and methods used in business research</li>
+                    <li>Features multiple and exhaustive examples illustrating the material and helping in the learning
+                        process</li>
+                    <li>Features questions and problems at the end of each chapter for self-testing</li>
+                    <li>Provides lecture slides for better course preparation</li>
+                    <li>Applicable for single semester coursework</li>
+                </ul>
+                <button class="reserve-btn">Reserve This Book</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contact">
+            <p>Contact us: <a href="mailto:info@vallejolibrary.com">info@vallejolibrary.com</a></p>
+            <p>Need help? <a href="mailto:help@vallejolibrary.com">help@vallejolibrary.com</a></p>
+        </div>
+        <div class="footer-address">
+            <p><strong>Address & Opening Hours</strong></p>
+            <p>123 Library Lane, Vallejo, CA 94590</p>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+        </div>
+    </footer>
+</body>
+
+</html>

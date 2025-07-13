@@ -1,0 +1,594 @@
+/* 通用初始样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===============================
+   页面整体布局
+=============================== */
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    /* 头部/主体/底部自适应高度 */
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    background-color: #F4E3C0;
+    color: #333333;
+}
+
+/* ===============================
+   头部区域
+=============================== */
+header {
+    grid-area: header;
+    background-color: #1B365D;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* 标题在左，导航+按钮在右 */
+    padding: 10px 20px;
+}
+
+/* 站点标题或 LOGO */
+header .site-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 5px 8px;
+    transition: color 0.2s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: #ddd;
+}
+
+/* 右侧 Apply 按钮 */
+.apply-button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.apply-button:hover {
+    background-color: #cc5200;
+}
+
+/* ===============================
+   主体区域
+=============================== */
+main {
+    grid-area: main;
+    display: grid;
+    /* 原先 15vh auto 改为 auto auto，避免强制高度 */
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    width: 100%;
+    position: relative;
+}
+
+/* 中间横幅，不再固定高度 */
+.mid_banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 80px;
+    /* 或者不设置，让内容自适应 */
+    background-color: #5271A3;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.left_box,
+.right_box {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+}
+
+/* 搜索框示例 */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#search {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background: #e0e0e0;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: not-allowed;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    background: #ddd;
+    cursor: default;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+/* 主容器：左栏 + 中间 + 右栏 */
+.container {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    gap: 5px;
+    background-color: lightblue;
+    position: relative;
+    z-index: 1;
+    /* 如果想让左/右栏在同一顶端对齐，可加上: */
+    align-items: start;
+}
+
+/* ===============================
+   统一左右栏样式
+=============================== */
+.left_banner,
+.right_banner {
+    background-color: lightskyblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 300px;
+    /* 让左右栏最大宽度相同 */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    /* 若需要分隔 */
+}
+
+/* 统一左右栏标题 */
+.left_banner h2,
+.right_banner h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* 统一左右栏列表 */
+.left_banner ul,
+.right_banner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* 统一左右栏列表项 */
+.left_banner ul li,
+.right_banner ul li {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    width: 90%;
+    transition: all 0.3s ease-in-out;
+}
+
+.left_banner ul li:hover,
+.right_banner ul li:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* 如果列表项里有链接，统一链接样式 */
+.left_banner ul li a,
+.right_banner ul li a {
+    color: #5271A3;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.left_banner ul li a:hover,
+.right_banner ul li a:hover {
+    color: #FFD700;
+}
+
+/* ===============================
+   中间内容区域（不限制高度）
+=============================== */
+.center {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* 去掉 max-height 和 overflow-y，允许内容自由扩展 */
+}
+
+/* ===============================
+   信息盒子 .box
+=============================== */
+.box {
+    width: 90%;
+    /* 去掉 height: 28%; 避免强制限制内容高度 */
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    /* 多个 .box 之间的间距 */
+}
+
+.box-image {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-image img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.box-content {
+    width: 70%;
+    padding: 10px;
+    text-align: left;
+}
+
+.book-page main {
+    /* 使 book.html 的主体内容居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.book-page .book-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* 左侧：书籍基本信息及封面图片 */
+.book-page .book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.book-page .book-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.book-page .book-info h2 {
+    font-size: 1.8rem;
+    color: #1b365d;
+}
+
+.book-page .book-info p {
+    margin: 0;
+}
+
+/* 右侧：书籍摘要及预订按钮 */
+.book-page .book-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.book-page .book-summary p {
+    margin: 0;
+}
+
+.book-page .book-summary ul {
+    list-style: disc inside;
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+}
+
+.book-page .reserve-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: max-content;
+}
+
+.book-page .reserve-btn:hover {
+    background-color: #cc5200;
+}
+
+.application-container {
+    background: #fff;
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    place-self: center;
+}
+
+.application-container h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #1b365d;
+}
+
+/* 优化表单 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+fieldset {
+    border: none;
+    /* 去掉默认边框 */
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* 提交按钮 */
+button[type="submit"] {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    align-self: flex-start;
+    /* 按钮靠左，也可改为 center/right */
+}
+
+button[type="submit"]:hover {
+    background-color: #cc5200;
+}
+
+/* ===============================
+   底部区域
+=============================== */
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 5%;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-contact,
+.footer-address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+footer a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+/* ===============================
+   响应式布局 - 平板 (max-width: 1024px)
+=============================== */
+@media (max-width: 1024px) {
+    header {
+        flex-wrap: wrap;
+        /* 当空间不够时自动换行 */
+    }
+
+    .site-title {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mid_banner {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .left_box,
+    .right_box {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        /* 单列 */
+        gap: 10px;
+        padding: 0 10px;
+        align-items: start;
+    }
+}
+
+/* ===============================
+   响应式布局 - 手机 (max-width: 600px)
+=============================== */
+@media (max-width: 600px) {
+    header {
+        padding: 8px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .site-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .apply-button {
+        align-self: center;
+        margin-bottom: 10px;
+    }
+
+    .mid_banner {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .search-container {
+        max-width: 90%;
+        margin: 10px auto;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 0 10px;
+        align-items: start;
+    }
+
+    .left_banner,
+    .right_banner {
+        max-width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .center {
+        padding: 15px;
+    }
+
+    .box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .box-image,
+    .box-content {
+        width: 100%;
+    }
+
+    .book-page .book-card {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+}

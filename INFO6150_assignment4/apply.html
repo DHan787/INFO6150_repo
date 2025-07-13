@@ -1,0 +1,60 @@
+<!--
+ * @Author: Jiang Han
+ * @Date: 2025-02-14 20:42:59
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Card Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="book.html">Catalog</a></li>
+                <li><a href="loans.html">Loan System(not Available yet)</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="application-container">
+            <h2>Get Your Library Card</h2>
+            <form action="submit_card_application" method="POST">
+                <fieldset>
+                    <legend>Library Card Application</legend>
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </fieldset>
+                <button type="submit">Apply Now</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <p>Contact us: <a href="mailto:info@vallejolibrary.com">info@vallejolibrary.com</a></p>
+            <p>Need help? <a href="mailto:help@vallejolibrary.com">help@vallejolibrary.com</a></p>
+        </div>
+        <div class="footer-address">
+            <p><strong>Address & Opening Hours</strong></p>
+            <p>123 Library Lane, Vallejo, CA 94590</p>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+        </div>
+    </footer>
+</body>
+
+</html>

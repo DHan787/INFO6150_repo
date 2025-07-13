@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vallejo Public Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Grid Layout */
+        body {
+            display: grid;
+            grid-template-areas:
+                "header"
+                "main"
+                "footer";
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            grid-area: header;
+            background-color: #0077cc;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        main {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Address & Opening Hours */
+        .info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Latest News */
+        .news {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .books {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        footer a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="book.html">Catalog</a></li>
+                <li><a href="apply.html">Get a Library Card</a></li>
+                <li><a href="loans.html">Loan System(not Available yet)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="books">
+            <h2>📚 Welcome to Vallejo Public Library</h2>
+            <p>Discover a world of books, resources, and events at your local library.</p>
+            <h3>Featured Book</h3>
+            <h3><a href="book.html">Bussiness Research Methodology</a></h3>
+
+            <h4>Authors: <a href="https://link.springer.com/book/10.1007/978-3-030-76857-7#author-0-0">Sergey K.
+                    Aityan</a></h4>
+        </section>
+        <section class="info">
+            <h2>Address & Opening Hours</h2>
+            <p>📍 123 Library Lane, Vallejo, CA 94590</p>
+            <p>🕘 Monday - Friday: 9:00 AM - 6:00 PM</p>
+        </section>
+
+        <section class="news">
+            <h2>📢 Latest News</h2>
+            <p>No upcoming events. Stay tuned!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>📧 Contact us: <a href="mailto:info@vallejolibrary.com">info@vallejolibrary.com</a></p>
+    </footer>
+</body>
+
+</html>

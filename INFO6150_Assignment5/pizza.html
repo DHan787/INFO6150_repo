@@ -1,0 +1,85 @@
+<!--
+ * @Author: Jiang Han
+ * @Date: 2025-03-12 16:39:09
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza!</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+    <header>
+        <h1>Pizza Home</h1>
+    </header>
+    <main>
+        <form id="registrationForm" novalidate>
+            <div class="form-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <div class="form-field">
+                <label for="yearOfBirth">Year of Birth:</label>
+                <input type="number" id="yearOfBirth" name="yearOfBirth" required />
+                <div class="error" id="yearError"></div>
+            </div>
+
+            <div class="form-field">
+                <label>
+                    <input type="checkbox" id="usResident" name="usResident" />
+                    Do you live in the United States?
+                </label>
+            </div>
+
+            <div class="form-field hidden" id="zipcodeField">
+                <label for="zipcode">Zipcode:</label>
+                <input type="text" id="zipcode" name="zipcode" maxlength="5" />
+                <div class="error" id="zipcodeError"></div>
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+                <div class="error" id="passwordError"></div>
+            </div>
+
+            <fieldset class="form-field">
+                <legend>Preferred type of pizza:</legend>
+                <div class="pizza-options">
+                    <label>
+                        <input type="radio" name="pizza" value="with_pineapple" required />
+                        With pineapple
+                    </label>
+                </div>
+                <div class="pizza-options">
+                    <label>
+                        <input type="radio" name="pizza" value="without_pineapple" required />
+                        Without pineapple
+                    </label>
+                </div>
+                <div class="pizza-options">
+                    <label>
+                        <input type="radio" name="pizza" value="no_pizza" required />
+                        I do not like pizza
+                    </label>
+                </div>
+                <div class="error" id="pizzaError"></div>
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="acceptedMessage" class="accepted hidden">Accepted</div>
+    </main>
+</body>
+
+</html>

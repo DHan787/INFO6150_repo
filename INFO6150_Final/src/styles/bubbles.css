@@ -1,0 +1,13 @@
+.bubble {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(209, 75, 121, 0.5);
+    border-radius: 50%;
+    animation: bubbleAnimation 3s ease-out forwards;
+}
+
+@keyframes bubbleAnimation {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(2); }
+}

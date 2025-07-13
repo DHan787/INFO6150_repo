@@ -1,0 +1,117 @@
+<!--
+ * @Author: Jiang Han
+ * @Date: 2025-02-28 17:41:17
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+
+        }
+
+        #text {
+            text-align: center;
+            font-size: 55px;
+            color: #C5E063;
+        }
+
+        #random_number_button {
+            background-color: #3EB692;
+            color: white;
+            margin: 0 auto;
+            display: block;
+            border: none;
+            width: 200px;
+            height: 80px;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        #random_number_button:hover {
+            background-color: #3EB692;
+            transform: scale(1.2);
+        }
+
+        #random_number_button:active {
+            background-color: #3EB692;
+            transform: scale(0.9);
+        }
+
+        #random_number_display {
+            text-align: center;
+        }
+
+        #random_number_display_value {
+            font-size: 150px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            border: 10px solid green;
+            color: #55917F;
+        }
+
+        @keyframes lift {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.5);
+                font-weight: bold;
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heavy {
+            0% {
+                transform: translateY(0px) scale(1);
+                font-weight: 400;
+            }
+
+            50% {
+                transform: translateY(-10px) scale(1.3);
+                font-weight: 900;
+            }
+
+            100% {
+                transform: translateY(0px) scale(1);
+                font-weight: 400;
+            }
+        }
+
+        .lift-effect {
+            animation: lift 0.5s ease-in-out;
+        }
+
+        .heavy-effect {
+            animation: heavy 0.5s ease-in-out;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="text">
+        <h1>GENERATE YOUR<br>NUMBER </h1>
+    </div>
+    <button id="random_number_button" onclick="generateRandomNumber()">GO!</button>
+    <div id="random_number_display">
+        <h1 style="color: #60A561;">YOUR NUMBER:</h1>
+        <div id="random_number_display_value" style="font-size: 150px; justify-self: center; align-self: center;"></div>
+    </div>
+</body>
+
+</html>

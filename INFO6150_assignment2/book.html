@@ -1,0 +1,144 @@
+<!--
+ * @Author: Jiang Han
+ * @Date: 2025-01-24 21:25:28
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Grid Layout */
+        body {
+            display: grid;
+            grid-template-areas:
+                "header"
+                "main"
+                "footer";
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            grid-area: header;
+            background-color: #0077cc;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        main {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Address & Opening Hours */
+        .info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Latest News */
+        .news {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .books {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        footer a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>Book Title: Business Research Methodology</h2>
+            <p>Author: Sergey K. Aityan</p>
+            <p>Genre: Textbook</p>
+            <p>Summary:
+            <ul>
+                <li>Presents the major research processes and methods used in business research</li>
+                <li>Features multiple and exhaustive examples illustrating the material and helping in the learning
+                    process</li>
+                <li>Features questions and problems at the end of each chapter for self-testing</li>
+                <li>Provides lecture slides for better course preparation</li>
+                <li>Applicable for single semester coursework</li>
+            </ul>
+            </p>
+            <p>Copies: 5</p>
+            <p>Available: 3</p>
+            <button>Reserve This Book</button>
+        </article>
+    </main>
+    <footer>
+        <p>Contact us at: info@vallejolibrary.com</p>
+    </footer>
+</body>
+
+</html>
